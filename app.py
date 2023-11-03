@@ -45,7 +45,7 @@ if  not st.sidebar.checkbox("Hide",False):
 st.sidebar.subheader("When and Where are users Tweeting from?")
 hour=st.sidebar.slider("Hour of Day",0,23)
 data_acc_to_hour=(data[data['tweet_created'].dt.hour==hour]).dropna()
-if not st.sidebar.checkbox("Close", True, key='2'):
+if not st.sidebar.checkbox("Close", False, key='2'):
     st.markdown("### Tweets location based on time of day")
     st.markdown("%i tweets between %i:00 and %i:00" %(len(data_acc_to_hour), hour, (hour+1)%24))
     st.map(data_acc_to_hour)
