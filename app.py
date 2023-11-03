@@ -49,7 +49,7 @@ if not st.sidebar.checkbox("Close", True, key='2'):
     st.markdown("### Tweets location based on time of day")
     st.markdown("%i tweets between %i:00 and %i:00" %(len(data_acc_to_hour), hour, (hour+1)%24))
     st.map(data_acc_to_hour)
-    if st.sidebar.checkbox("Show raw data", True):
+    if st.sidebar.checkbox("Show raw data", False):
         st.write(data_acc_to_hour)
         
 st.sidebar.subheader("Airline Tweets By Sentiments")
@@ -65,7 +65,7 @@ if len(choice)>0:
 st.sidebar.header("Word Cloud")
 word_sentiment=st.sidebar.radio('Choose sentiment to Display Word Cloud!', ('positive','negative','neutral'))
 
-if not st.sidebar.checkbox("Close",True,key='4'):
+if not st.sidebar.checkbox("Close",False,key='4'):
     st.header("Word Cloud for %s" % (word_sentiment))
     data_acc_to_sentiment=data[data['airline_sentiment']==word_sentiment]
     words=' '.join(data_acc_to_sentiment['text'])
